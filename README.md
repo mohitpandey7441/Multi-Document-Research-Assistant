@@ -122,22 +122,4 @@ python -m streamlit run app.py
 │
 └── vectorstore/
 
-💡 Example Use Cases
-📚 Research papers
-📖 Study material
-📄 Technical documentation
-📑 Multiple PDF analysis
-🔬 Research assistance
-🖼️ Image understanding
-📊 Document-based question answering
 
-🎯 Project Highlights
-Multi-document RAG architecture
-Semantic search using vector embeddings
-Persistent ChromaDB vector store
-Grounded LLM responses
-Source tracking
-Image question answering
-Streamlit-based interactive UI
-Modular project architecture
-Environment-variable based API security
