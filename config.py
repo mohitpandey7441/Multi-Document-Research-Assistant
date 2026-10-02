@@ -1,35 +1,17 @@
-import os
+from langchain_chroma import Chroma
 
-from dotenv import load_dotenv
+from config import VECTOR_DB_PATH
+from utils.embeddings import get_embeddings
 
-load_dotenv()
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+def create_vector_store(chunks):
+    embeddings = get_embeddings()
 
-GROQ_MODEL = os.getenv(
-    "GROQ_MODEL",
-    "openai/gpt-oss-120b"
-)
+    vector_store = Chroma.from_documents(
+        documents=chunks,
+        embedding=embeddings,
+        collection_name="rag_documents",
+        persist_directory=VECTOR_DB_PATH
+    )
 
-GROQ_VISION_MODEL = os.getenv(
-    "GROQ_VISION_MODEL",
-    "qwen/qwen3.6-27b"
-)
-
-EMBEDDING_MODEL = os.getenv(
-    "EMBEDDING_MODEL",
-    "sentence-transformers/all-MiniLM-L6-v2"
-)
-
-CHUNK_SIZE = 800
-CHUNK_OVERLAP = 150
-TOP_K = 5
-
-UPLOAD_DIR = os.path.join(
-    "data",
-    "uploads"
-)
-
-VECTOR_DB_PATH = os.path.join(
-    "vectorstore"
-)
+    return vector_store
