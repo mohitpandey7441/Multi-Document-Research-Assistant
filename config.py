@@ -1,5 +1,5 @@
 import os
-import tempfile
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -25,6 +25,11 @@ CHUNK_SIZE = 800
 CHUNK_OVERLAP = 150
 TOP_K = 5
 
-# Writable temporary directories for Streamlit Cloud
-UPLOAD_DIR = os.path.join("/tmp", "rag_uploads")
-VECTOR_DB_PATH = tempfile.mkdtemp(prefix="rag_chroma_")
+UPLOAD_DIR = os.path.join(
+    "data",
+    "uploads"
+)
+
+VECTOR_DB_PATH = os.path.join(
+    "vectorstore"
+)
