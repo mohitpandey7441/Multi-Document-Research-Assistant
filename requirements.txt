@@ -12,6 +12,3 @@ pypdf
 sentence-transformers
 
 langchain-groq
-
-fastapi
-uvicorn
